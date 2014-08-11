@@ -28,22 +28,20 @@ plotNPV(ranges,"basin.capital.cost.per.ml.at.0.2.m.per.day",scens)
 ## Fig 5.1 and 5.2 are diagrams
 
 ## Table 1 Levelised costs
-## FIXME row 2 basin, row 1 injection
 table1=rbind(
   c(0,
     annualised.capital.cost(NPV("basin",state.var="capital.cost"), 0.07, 30)/200,
-    annualised.capital.cost(NPV("injection",state.var="capital.cost",asr.treatment.capital.cost.per.ml=150), 0.07, 20)/200
+    annualised.capital.cost(NPV("injection",state.var="capital.cost"), 0.07, 20)/200
   ),
   c(
-    ##FIXME: make 0.6 the default
-    NPV("base",state.var="ongoing.cost",capture.pump.cost.ratio.surface=0.6)/200,
-    NPV("basin",state.var="ongoing.cost",capture.pump.cost.ratio.surface=0.6)/200,
-    NPV("injection",state.var="ongoing.cost",capture.pump.cost.ratio.surface=0.6)/200
+    NPV("base",state.var="ongoing.cost")/200,
+    NPV("basin",state.var="ongoing.cost")/200,
+    NPV("injection",state.var="ongoing.cost")/200
   ),
   c(
-    NPV("base",state.var="cost",capture.pump.cost.ratio.surface=0.6)/200,
-    NPV("basin",state.var="cost",capture.pump.cost.ratio.surface=0.6)/200,
-    NPV("injection",state.var="cost",capture.pump.cost.ratio.surface=0.6,asr.treatment.capital.cost.per.ml=150)/200
+    NPV("base",state.var="cost")/200,
+    NPV("basin",state.var="cost")/200,
+    NPV("injection",state.var="cost")/200
   )
 )
 colnames(table1)<-c("base","basin","injection")
@@ -66,7 +64,6 @@ table2 <- rbind(
 round(table2,1)
 
 ## Table 3
-
 table3 <- cbind(univariate.breakeven(ranges,"base","basin")[,c("Variable","Modeled")],
                 surface.basin=round(univariate.breakeven(ranges,"base","basin")[,"break."],2),
                 surface.asr=round(univariate.breakeven(ranges,"base","injection")[,"break."],2),
