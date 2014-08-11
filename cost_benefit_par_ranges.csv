@@ -14,6 +14,3 @@ discount.rate,0.07,0.01,0.5
 nyears$base,30,2,50
 nyears$basin,30,2,50
 nyears$injection,20,2,50
-variable.cost.per.ha$cotton,2658,626.25,10020
-total.overhead.cost,5192,1000,10000
-farmdam.cost.per.ml,0,100,5000
