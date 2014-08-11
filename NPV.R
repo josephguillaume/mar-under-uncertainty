@@ -22,7 +22,8 @@ function (scen = "base", pump.cost.dollar.per.ml = 35, capture.pump.cost.dollar.
     asr.capital.cost.per.ml = 700, asr.cost.temp.storage.per.ml = 0, 
     asr.treatment.capital.cost = NA, asr.treatment.capital.cost.per.ml = 250, 
     asr.treatment.cost.per.ml = 150, asr.maintenance.rate = 0.07, 
-    net.environmental.cost = 0, breakeven.factor = NA, state.var = NA) 
+    asr.capital.cost = 0, net.environmental.cost = 0, 
+    breakeven.factor = NA, state.var = NA)
 {
     nyears = nyears[[scen]]
     if (scen == "base") {
@@ -114,7 +115,7 @@ function (scen = "base", pump.cost.dollar.per.ml = 35, capture.pump.cost.dollar.
         surface.pump.cost = total.surface.water * capture.pump.cost.dollar.per.ml.mar
         temporary.storage.cost = asr.cost.temp.storage.per.ml * 
             asr.capacity.ml
-        asr.capital.cost = asr.capital.cost.per.ml * asr.capacity.ml
+        if (is.na(asr.capital.cost)) asr.capital.cost = asr.capital.cost.per.ml * asr.capacity.ml
         if (is.na(asr.treatment.capital.cost)) 
             asr.treatment.capital.cost = asr.treatment.capital.cost.per.ml * 
                 asr.capacity.ml
