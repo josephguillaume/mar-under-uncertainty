@@ -8,7 +8,7 @@ mar.loss.rate,0.05,0,0.85
 asr.capital.cost.per.ml,700,50,3000
 asr.treatment.cost.per.ml,150,0,500
 asr.maintenance.rate,0.07,0.03,0.5
-price.per.yield$cotton,538,50,2000
+price.per.yield$cotton,538,50,1500
 price.per.yield$faba.bean,348,50,1400
 discount.rate,0.07,0.01,0.5
 nyears$base,30,2,50
