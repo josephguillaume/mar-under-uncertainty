@@ -73,7 +73,7 @@ table3
 
 
 ## Table 4 point of greatest concern
-temp.ranges <- ranges[c(1:6,10:14),]
+temp.ranges <- ranges[c(1:6,9:13),]
 pgc <- crossoverEquiconcern("base","basin",temp.ranges)
 table4 <- cbind(temp.ranges[,c("Variable","Min","Max","Modeled")],
                 pt.greatest.concern=round(pgc$values,2),
