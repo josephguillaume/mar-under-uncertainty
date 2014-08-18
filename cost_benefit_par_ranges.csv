@@ -5,7 +5,6 @@ basin.capital.cost.per.ml.at.0.2.m.per.day,363,100,3000
 basin.infiltration.rate,0.2,0.01,2
 basin.maintenance.rate,0.1,0.01,0.4
 mar.loss.rate,0.05,0,0.85
-asr.capital.cost.per.ml,700,50,3000
 asr.treatment.cost.per.ml,150,0,500
 asr.maintenance.rate,0.07,0.03,0.5
 price.per.yield$cotton,538,50,1500
