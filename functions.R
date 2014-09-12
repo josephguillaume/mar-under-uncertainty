@@ -86,8 +86,9 @@ plotNPV<-function(ranges,variable,scens,NPV=get("NPV",.GlobalEnv),text=FALSE){
           geom_vline(aes(xintercept={MODELED},linetype='Best guess',size='Best guess',colour='Best guess',show_guide=TRUE))+
           geom_vline(aes(xintercept=c({MIN},{MAX}),linetype='Limits',size='Limits',colour='Limits'))+
           geom_hline(aes(yintercept=0),colour='grey',size=1,linetype='solid')+
-          scale_x_continuous(name=variable,limits=range(c(ranges0$Min,ranges0$Max)))+
-          scale_y_continuous(name='NPV AU$1000s')+
+          scale_x_continuous(limits=range(c(ranges0$Min,ranges0$Max)),labels=comma)+
+          xlab(variable)+
+          scale_y_continuous(name='NPV AU$1,000s')+
           scale_linetype_manual(name='Lines',values=c('Limits'='solid','Best guess'='dashed',{LINETYPE}),
                     limits=c('Best guess','Limits',{SCENS}))+
           scale_size_manual(name='Lines',values=c('Limits'=0.5,'Best guess'=0.5,{SIZE}),

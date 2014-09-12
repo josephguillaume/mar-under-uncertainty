@@ -1,5 +1,6 @@
 if(!require("ggplot2")) install.packages("ggplot2")
 library(ggplot2)
+library(scales)
 
 source("functions.R")
 source("NPV.R")
@@ -15,7 +16,9 @@ ranges <- read.csv("cost_benefit_par_ranges.csv",stringsAsFactors=FALSE)
 scens=c("Basin infiltration"="basin",
         "Surface Storage"="base",
         "ASR"="injection")
-plotNPV(ranges,"pump.cost.dollar.per.ml",scens)
+plotNPV(ranges,"pump.cost.dollar.per.ml",scens)+
+  xlab("Pumping cost (AU$/ML)")
+ggsave("fig1.png",width=5,height=3,scale=1.2)
 
 ## Fig 2 is a diagram
 
@@ -23,7 +26,9 @@ plotNPV(ranges,"pump.cost.dollar.per.ml",scens)
 round(base=c(NPV("base"),basin=NPV("basin"),injection=NPV("injection"))/1000)
 
 ## Fig 4
-plotNPV(ranges,"basin.capital.cost.per.ml.at.0.2.m.per.day",scens)
+plotNPV(ranges,"basin.capital.cost.per.ml.at.0.2.m.per.day",scens)+
+  xlab("Basin capital cost at infiltration rate of 0.2 m/day (AU$/ML)")
+ggsave("fig4.png",width=5,height=3,scale=1.2)
 
 ## Fig 5.1 and 5.2 are diagrams
 
